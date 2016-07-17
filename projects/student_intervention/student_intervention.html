@@ -225,7 +225,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries</span>
@@ -277,14 +277,14 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Calculate number of students</span>
 <span class="n">n_students</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="p">)</span>
 
 <span class="c1"># TODO: Calculate number of features</span>
-<span class="n">n_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">n_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># don&#39;t count column &#39;passed&#39;</span>
 
 <span class="c1"># TODO: Calculate passing students</span>
 <span class="n">n_passed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">student_data</span><span class="p">[</span><span class="s1">&#39;passed&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;yes&#39;</span><span class="p">)</span>
@@ -314,7 +314,7 @@ div#notebook {
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Total number of students: 395
-Number of features: 31
+Number of features: 30
 Number of students who passed: 265
 Number of students who failed: 130
 Graduation rate of the class: 67.09%
@@ -561,12 +561,15 @@ Testing set has 95 samples.
 <p><strong>Answer: </strong></p>
 <ul>
 <li><strong>Decision Tree:</strong> Can be used for classification and for regression (by looking at standard deviations instead of information gain).<br>
+Applications: Lots of applications, including star-galaxy classification in astronomy, uncovering flaws in manufacturing at Boeing, or recognizing three-dimensional objects (see <a href="http://www.cbcb.umd.edu/~salzberg/docs/murthy_thesis/survey/node32.html">here</a> for a complete overview and references).<br>
 Strengths: Easy to understand and analyze, takes little learning time. Weaknesses: Prone to overfitting (if the depth of the tree is not controlled).<br>
 Here: Decision trees are an easy, general purpose classification algorithm, that's exactly suited for data like in this example (many different features that the tree can make decisions about). </li>
 <li><strong>Support Vector Machine:</strong> Typically used for classification, but also possible to do regression (see here: <a href="http://kernelsvm.tripod.com/">http://kernelsvm.tripod.com/</a>).<br>
+Applications: See <a href="http://www.clopinet.com/SVM.applications.html">here</a> for a list of papers using SVM. Some notable areas are geosciences, protein folding, and facial expression classification.<br>
 Strengths: Very powerful algorithm, many parameters to tune behavior. Weaknesses: Long training time.<br>
 Here: SVM is one of the most powerful algorithms for classification and widely used in machine learning, so it should also be good for this problem. </li>
 <li><strong>K-Nearest Neighbors:</strong> Classification (by letting the neighbors vote on the class) or regression (by averaging the neighbors).<br>
+Applications: <a href="https://saravananthirumuruganathan.wordpress.com/2010/05/17/a-detailed-introduction-to-k-nearest-neighbor-knn-algorithm/">This blog post</a> lists some application areas, e.g. content retrieval on images and videos, and gene expression.<br>
 Strengths: No training time (except for storing the values). Weaknesses: Can hardly generalize to completely unseen values, low prediction speed, all features are equally important.<br>
 Here: Even though KNN does not generalize particularly well to new students, the dataset is big enough that it should give reasonable results. </li>
 </ul>
