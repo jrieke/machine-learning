@@ -42,7 +42,7 @@ class Reporter(object):
                 plt.ion()
             self.plot()
 
-        print "Reporter.__init__(): Initialized with metrics: {}".format(metrics)  # [debug]
+        # print "Reporter.__init__(): Initialized with metrics: {}".format(metrics)  # [debug]
 
     def collect(self, name, x, y):
         if not name in self.metrics:
@@ -50,7 +50,7 @@ class Reporter(object):
             if self.live_plot:
                 self.metrics[name].plot(self.ax)
                 self.ax.legend()  # add new metric to legend
-            print "Reporter.collect(): New metric added: {}".format(name)  # [debug]
+            # print "Reporter.collect(): New metric added: {}".format(name)  # [debug]
         self.metrics[name].collect(x, y)
         if self.live_plot:
             self.metrics[name].refresh()
